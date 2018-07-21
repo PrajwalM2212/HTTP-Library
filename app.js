@@ -1,4 +1,4 @@
-const eHttp = new easyHttp();
+// const eHttp = new easyHttp();
 
 /*
 eHttp.get("https://jsonplaceholder.typicode.com/posts",
@@ -50,3 +50,35 @@ function(err,response){
 console.log(eHttp);*/
 
 
+
+const http = new EasyHttp();
+
+http.getC("https://jsonplaceholder.typicode.com/users", function (err, res) {
+
+    err ? console.log(err) : console.log(res);
+});
+
+http.get("https://jsonplaceholder.typicode.com/users")
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
+
+http.post("https://jsonplaceholder.typicode.com/users", {
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+})
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
+
+http.put("https://jsonplaceholder.typicode.com/users/10", {
+    "name": "Leanne",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+})
+    .then(json => console.log(json))
+    .catch(err => console.log(json));
+
+
+http.delete("https://jsonplaceholder.typicode.com/users/8")
+    .then(res => console.log(res))
+    .catch(err => console.log(json));
